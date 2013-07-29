@@ -5,10 +5,10 @@ Fork Volley.
 
 Для поднятие upstream с google code
 
-$ git remote add upstream https://android.googlesource.com/platform/frameworks/volley
-$ git remote -v
+	$ git remote add upstream https://android.googlesource.com/platform/frameworks/volley
+	$ git remote -v
 
 для синхронизации с google code:
 
-$ git fetch upstream
-$ git merge upstream/master
+	$ git fetch upstream
+	$ git merge upstream/master
