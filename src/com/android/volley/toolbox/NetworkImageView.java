@@ -120,12 +120,7 @@ public class NetworkImageView extends ImageView {
                 mImageContainer.cancelRequest();
                 mImageContainer = null;
             }
-            // TODO: fix
-            if (mDefaultImageId != 0) {
-                setImageResource(mDefaultImageId);
-            } else {
-                setImageBitmap(null);
-            }
+            setDefaultImageOrNull();
             return;
         }
 
@@ -137,7 +132,7 @@ public class NetworkImageView extends ImageView {
             } else {
                 // if there is a pre-existing request, cancel it if it's fetching a different URL.
                 mImageContainer.cancelRequest();
-                setImageBitmap(null);
+                setDefaultImageOrNull();
             }
         }
 
@@ -178,6 +173,15 @@ public class NetworkImageView extends ImageView {
 
         // update the ImageContainer to be the new bitmap container.
         mImageContainer = newContainer;
+    }
+
+    private void setDefaultImageOrNull() {
+        if(mDefaultImageId != 0) {
+            setImageResource(mDefaultImageId);
+        }
+        else {
+            setImageBitmap(null);
+        }
     }
 
     @Override
